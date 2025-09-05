@@ -1,0 +1,48 @@
+# =========================
+# Maven / Build outputs
+# =========================
+**/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# (Si algún IDE genera /build)
+**/build/
+
+# =========================
+# IDEs
+# =========================
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# Eclipse
+.classpath
+.project
+.settings/
+.apt_generated
+.factorypath
+.sts4-cache
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# VS Code
+.vscode/
+
+# =========================
+# Logs / temp
+# =========================
+*.log
+
+# =========================
+# OS-specific
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
