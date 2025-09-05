@@ -13,6 +13,27 @@ Selenium 4.x
 Patrón: Page Object Model (POM)
 Navegadores: Chrome (por defecto), Firefox
 
+serenity-pom-cucumber/
+├─ pom.xml
+├─ serenity.properties
+├─ README.md
+└─ src
+└─ test
+├─ java
+│  └─ saucedemo
+│     ├─ hooks/              # WebDriverHooks (NO forzar navegador)
+│     ├─ pages/              # PageObjects (POM)
+│     ├─ steps/              # Librerías de pasos (negocio + asserts)
+│     ├─ stepdefinitions/    # Glue de Cucumber (mínimo)
+│     └─ runners/            # Runner con CucumberWithSerenity
+└─ resources
+├─ features/
+│  ├─ auth/login.feature
+│  └─ cart/add_product_to_cart.feature
+├─ cucumber.properties
+└─ serenity.conf
+
+
 Comandos
 
 Validar proyecto = mvn -q validate
