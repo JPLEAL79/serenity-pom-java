@@ -1,52 +1,66 @@
-# Tecnologías & Versiones
+serenity-pom-cucumber · Demo Saucedemo 
 
-Java: 17
-Maven: 3.9.9
-Serenity BDD: 4.x (via serenity-core, serenity-cucumber, serenity-junit)
-Cucumber: 7.x
-Selenium: 4.x
-Patrón: Page Object Model (POM) con PageFactory
+Automatización Web UI con Serenity BDD + Cucumber + Selenium usando Page Object Model (PageFactory).
+Incluye casos de Login (positivo/negativo) y Agregar producto al carrito.
+
+Tecnologías & Versiones
+
+Java 17
+Maven 3.9.9
+Serenity BDD 4.x (core, cucumber, junit)
+Cucumber 7.x
+Selenium 4.x
+Patrón: Page Object Model (POM)
 Navegadores: Chrome (por defecto), Firefox
 
-1- Validar proyecto
-mvn -q validate
+Comandos
 
-2-Ejecutar toda la suite
+Validar proyecto = mvn -q validate
 
-# UI visible (Chrome por defecto)
-mvn clean verify -Pui
+Ejecutar toda la suite
 
-# Headless (Chrome headless)
-mvn clean verify -Pheadless
+# Chrome (por defecto)
+mvn clean verify
 
-3-Ejecutar por tags
-
-# Solo login (positivos + negativos)
-mvn clean verify -Pui -Dcucumber.filter.tags='@login'
-
-# Solo positivos de login
-mvn clean verify -Pui -Dcucumber.filter.tags='@login and @positive'
-
-# Solo negativos de login
-mvn clean verify -Pui -Dcucumber.filter.tags='@login and @negative'
-
-# Solo carrito
-mvn clean verify -Pui -Dcucumber.filter.tags='@cart'
+# Firefox
+mvn clean verify -Dwebdriver.driver=firefox
 
 
-4- Ejecutar por nombre de navegador
-
-# Chrome UI
-mvn clean verify -Pui,chrome
-
-# Firefox UI
-mvn clean verify -Pui,firefox
+Headless
 
 # Chrome headless
-mvn clean verify -Pheadless,chrome
+mvn clean verify -Dwebdriver.driver=chrome  -Dheadless.mode=true
 
 # Firefox headless
-mvn clean verify -Pheadless,firefox
+mvn clean verify -Dwebdriver.driver=firefox -Dheadless.mode=true
+
+Por tags
+
+# Solo login (positivos + negativos)
+mvn clean verify -Dcucumber.filter.tags='@login'
+
+# Solo positivos de login
+mvn clean verify -Dcucumber.filter.tags='@login and @positive'
+
+# Solo negativos de login
+mvn clean verify -Dcucumber.filter.tags='@login and @negative'
+
+# Solo carrito
+mvn clean verify -Dcucumber.filter.tags='@cart'
+
+Por nombre de escenario / por feature
+
+# Por nombre (o parte del nombre) del escenario
+mvn clean verify -Dcucumber.filter.name='Agregar productos específicos al carrito'
+
+# Por archivo feature
+mvn clean verify -Dcucumber.features='src/test/resources/features/cart/add_product_to_cart.feature'
+
+Reporte
+
+# Abrir reporte HTML de Serenity (Windows)
+explorer.exe target/site/serenity/index.html
+
 
 
 
