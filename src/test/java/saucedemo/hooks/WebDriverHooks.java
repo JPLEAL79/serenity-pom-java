@@ -19,7 +19,10 @@ public class WebDriverHooks {
 
     @After(order = 1)
     public void tearDown(Scenario scenario) {
-        try { driver.manage().deleteAllCookies(); } catch (Exception ignored) {}
+        try {
+            driver.manage().deleteAllCookies();
+        } catch (Exception ignored) {
+        }
         Serenity.recordReportData().withTitle("Resultado").andContents(scenario.getStatus().name());
     }
 }

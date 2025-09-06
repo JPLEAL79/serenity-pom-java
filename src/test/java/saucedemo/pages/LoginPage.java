@@ -21,8 +21,19 @@ public class LoginPage extends BasePage {
 
 
     // Getters públicos: exponen los elementos sin duplicar la lógica de click/type
-    public WebElementFacade username()    { return usernameInput; }
-    public WebElementFacade password()    { return passwordInput; }
-    public WebElementFacade loginButton() { return loginButton; }
-    public WebElementFacade error()       { return errorBanner; }
+    public WebElementFacade username() {
+        return usernameInput;
+    }
+
+    public WebElementFacade password() {
+        return passwordInput;
+    }
+
+    public WebElementFacade loginButton() {
+        return loginButton;
+    }
+
+    public WebElementFacade error() {
+        return errorBanner;
+    }
 }

@@ -10,14 +10,14 @@ public class ProductsSteps {
 
     @Step("Agregar producto '{0}' al carrito")
     public void agregarProducto(String productName) {
-        productsPage.addButtonFor(productName)     // getter dinámico del botón
-                .waitUntilClickable()
-                .click();
+        // addButtonFor(...) ya hace waitUntilClickable() en ProductsPage
+        productsPage.addButtonFor(productName).click();
     }
 
     @Step("Ir al carrito")
     public void irAlCarrito() {
-        productsPage.cartIcon()                    // getter del icono
+        // Aquí sí esperamos porque cartIcon() no aplica wait en el getter
+        productsPage.cartIcon()
                 .waitUntilClickable()
                 .click();
     }

@@ -13,16 +13,21 @@ public class ProductsPage extends BasePage {
     private WebElementFacade cartIcon;
 
     // --- Getters: exponen elementos sin acciones ---
-    public WebElementFacade productsTitle() { return productsTitle; }
-    public WebElementFacade cartIcon()      { return cartIcon; }
+    public WebElementFacade productsTitle() {
+        return productsTitle;
+    }
 
-    // Botón “Add to cart” para un producto por nombre (getter dinámico)
+    public WebElementFacade cartIcon() {
+        return cartIcon;
+    }
+
+    // ProductsPage.java (solo ajusta este método)
     public WebElementFacade addButtonFor(String productName) {
         By locator = By.xpath(
                 "//div[@class='inventory_item_name' and text()='" + productName + "']" +
                         "/ancestor::div[contains(@class,'inventory_item')]//button[contains(@class,'btn_inventory')]"
         );
-        return $by(locator); // devuelve WebElementFacade ya con waitUntilVisible()
+        return $by(locator).waitUntilClickable(); // <- add: clickable
     }
 
     // Útil para validación post-login (lo usa LoginSteps)

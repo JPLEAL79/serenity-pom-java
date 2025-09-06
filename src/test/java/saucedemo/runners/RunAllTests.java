@@ -12,4 +12,5 @@ import org.junit.runner.RunWith;
         plugin = {"pretty"},
         tags = "@ui"
 )
-public class RunAllTests {}
+public class RunAllTests {
+}
